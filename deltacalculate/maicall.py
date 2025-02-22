@@ -4,6 +4,7 @@ from datetime import datetime
 import logging
 import requests
 import sys
+import streamlit as st
 #import pywhatkit as kit
 
 
@@ -34,7 +35,8 @@ def recall(count):
             now = datetime.now()
             if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
              logging.info("Exiting the function as it's 3:30 PM.")
-            sys.exit()  #
+             sys.exit()
+             st.stop
             deltaValue =delta.callEveryMinute()  # Run the task
             print("Running -----")
             logging.info("Running -----")
@@ -91,7 +93,8 @@ class DeltaValue:
         now = datetime.now()
         if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
             logging.info("Exiting the function as it's 3:30 PM.")
-            sys.exit()  #
+            sys.exit()
+            st.stop
         delta.callEveryMinute()
         count = count+1 # Run the task
         print("Running -----")
