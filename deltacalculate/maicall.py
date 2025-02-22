@@ -33,11 +33,11 @@ def recall(count):
         while True:
             logging.info("Entred in recall method -----")
             now = datetime.now()
-            if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
+            if now.hour >= 15 :  # 3:30 PM
              logging.info("Exiting the function as it's 3:30 PM.")
              sys.exit()
              st.stop
-            deltaValue =delta.callEveryMinute()  # Run the task
+            delta.callEveryMinute()  # Run the task
             print("Running -----")
             logging.info("Running -----")
             count = count+1
@@ -52,7 +52,7 @@ def recall(count):
 
             if count == 5 :
               deltaVal = 'Service is Running fine :'
-              string_num = str(deltaValue)
+              #string_num = str(deltaValue)
               value = deltaVal + string_num
               count =0
               #kit.sendwhatmsg('+919899096249',value, current_hour, current_minuteis)
