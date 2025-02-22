@@ -76,7 +76,7 @@ def callEveryMinute():
  now = datetime.now()
  logging.info(f"Task is Started to run:: {now} {now.hour}")
  if now.hour >= 15:  # 3:30 PM
-  logging.info("Exiting the function as it's 3:30 PM.")
+  logging.info("Exiting call function as it's 3:30 PM.")
   sys.exit()
 
  #print(records)
