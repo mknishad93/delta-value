@@ -338,6 +338,7 @@ def callEveryMinute():
  print("The absolute difference is:", absolute_differencenew)
  if  abs(absolute_differencenew) <= 0.9:
      time.sleep(300)
+     send_telegram_message(f"current delta Value is :: {absolute_differencenew} | CE delta: {cedelta} | PE delta: {pedelta}")
      
  
 

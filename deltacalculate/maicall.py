@@ -32,8 +32,8 @@ def recall(count):
         while True:
             logging.info("Entred in recall method -----")
             now = datetime.now()
-            if now.hour == 11 and now.minute == 00:  # 3:30 PM
-             print("Exiting the function as it's 3:30 PM.")
+            if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
+             logging.info("Exiting the function as it's 3:30 PM.")
             sys.exit()  #
             deltaValue =delta.callEveryMinute()  # Run the task
             print("Running -----")
@@ -48,7 +48,7 @@ def recall(count):
             
             # Print the current date and time
 
-            if count == 10 :
+            if count == 5 :
               deltaVal = 'Service is Running fine :'
               string_num = str(deltaValue)
               value = deltaVal + string_num
@@ -89,8 +89,8 @@ class DeltaValue:
       while True:
         logging.info("Task is Started to run...")
         now = datetime.now()
-        if now.hour == 11 and now.minute == 00:  # 3:30 PM
-            print("Exiting the function as it's 3:30 PM.")
+        if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
+            logging.info("Exiting the function as it's 3:30 PM.")
             sys.exit()  #
         delta.callEveryMinute()
         count = count+1 # Run the task
@@ -106,7 +106,7 @@ class DeltaValue:
         # Print the current date and time
 
         print("Current Date and Time:", current_datetime)
-        if count == 10 :
+        if count == 5 :
             deltaVal = 'Service is Running fine :'
             send_telegram_message(f"Service is running fine")
             #string_num = str(deltaValue)
