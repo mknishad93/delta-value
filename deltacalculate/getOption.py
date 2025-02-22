@@ -11,6 +11,7 @@ from datetime import datetime, date, timedelta
 from decimal import Decimal
 import re
 import time
+import sys
 
 
 logging.basicConfig(
@@ -72,7 +73,11 @@ def callEveryMinute():
  #logging.info(f"detail Expiry is :{expirydate}")
  # Fetch Nifty option chain data from NSE API
  session = requests.Session()
-
+ now = datetime.now()
+ logging.info(f"Task is Started to run:: {now} {now.hour}")
+ if now.hour >= 15:  # 3:30 PM
+  logging.info("Exiting the function as it's 3:30 PM.")
+  sys.exit()
 
  #print(records)
 
