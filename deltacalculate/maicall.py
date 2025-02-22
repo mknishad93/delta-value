@@ -89,8 +89,9 @@ class DeltaValue:
   count = 0
   try:
       while True:
-        logging.info("Task is Started to run...")
+        
         now = datetime.now()
+        logging.info(f"Task is Started to run:: {now}")
         if now.hour >= 15 and now.minute >= 33:  # 3:30 PM
             logging.info("Exiting the function as it's 3:30 PM.")
             sys.exit()
