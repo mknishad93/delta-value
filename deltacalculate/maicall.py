@@ -94,8 +94,9 @@ class DeltaValue:
         logging.info(f"Task is Started to run:: {now} {now.hour}")
         if now.hour >= 15:  # 3:30 PM
             logging.info("Exiting the function as it's 3:30 PM.")
-            sys.exit()
             st.stop
+            sys.exit()
+            
         delta.callEveryMinute()
         count = count+1 # Run the task
         print("Running -----")
