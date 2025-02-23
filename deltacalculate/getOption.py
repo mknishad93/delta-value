@@ -12,6 +12,7 @@ from decimal import Decimal
 import re
 import time
 import sys
+import pytz
 
 
 logging.basicConfig(
@@ -73,8 +74,9 @@ def callEveryMinute():
  #logging.info(f"detail Expiry is :{expirydate}")
  # Fetch Nifty option chain data from NSE API
  session = requests.Session()
- now = datetime.now()
- logging.info(f"Task is Started to run:: {now} {now.hour}")
+ india_tz = pytz.timezone('Asia/Kolkata')
+ now = datetime.now(india_tz)
+ logging.info(f"Task is Started to run in get option:: {now} {now.hour}")
  if now.hour <= 8 and now.hour >= 16:  # 3:30 PM
   logging.info("Exiting call function as it's 3:30 PM.")
   sys.exit()
