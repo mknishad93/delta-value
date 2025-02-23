@@ -5,6 +5,7 @@ import logging
 import requests
 import sys
 import streamlit as st
+import pytz
 #import pywhatkit as kit
 
 
@@ -32,8 +33,9 @@ def recall(count):
     try:
         while True:
             logging.info("Entred in recall method -----")
-            now = datetime.now()
-            if now.hour >= 15 :  # 3:30 PM
+            india_tz = pytz.timezone('Asia/Kolkata')
+            now = datetime.now(india_tz)
+            if now.hour <= 8 and now.hour >= 16 :  # 3:30 PM
              logging.info("Exiting the function as it's 3:30 PM.")
              sys.exit()
              st.stop
@@ -53,7 +55,7 @@ def recall(count):
             if count == 5 :
               deltaVal = 'Service is Running fine :'
               #string_num = str(deltaValue)
-              value = deltaVal + string_num
+              value = deltaVal 
               count =0
               #kit.sendwhatmsg('+919899096249',value, current_hour, current_minuteis)
               send_telegram_message(f"Service is running fine")
@@ -89,10 +91,10 @@ class DeltaValue:
   count = 0
   try:
       while True:
-        
-        now = datetime.now()
+        india_tz = pytz.timezone('Asia/Kolkata')
+        now = datetime.now(india_tz)
         logging.info(f"Task is Started to run:: {now} {now.hour}")
-        if now.hour >= 15:  # 3:30 PM
+        if now.hour <= 8 and now.hour >= 16:  # 3:30 PM
             logging.info("Exiting the function as it's 3:30 PM.")
             st.stop
             sys.exit()
