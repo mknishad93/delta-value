@@ -135,12 +135,12 @@ def callEveryMinute():
     pnl = item["pnl"]
     expiry, option_type, strike_price = parse_option_symbol(tradingsymbol)
     expiryMonth = expiry
-    if option_type == 'PE':
+    if option_type == 'PE' and quantity != 0:
         peToken = instrument_token
         peLastPrice= last_price
         PeStrikePrice = strike_price
         optionTypePE = option_type
-    if option_type == 'CE': 
+    if option_type == 'CE' and quantity != 0: 
         ceToken = instrument_token
         ceLastPrice= last_price
         CeStrikePrice = strike_price
@@ -343,13 +343,13 @@ def callEveryMinute():
  absolute_difference = abs(cedelta) - abs(pedelta)
  absolute_differencenew = round(absolute_difference, 2)
  print("The absolute difference is:", absolute_differencenew)
- if  abs(absolute_differencenew) <= 0.11:
+ if  abs(absolute_differencenew) <= 0.09:
      time.sleep(300)
      send_telegram_message(f"current delta Value is :: {absolute_differencenew} | CE delta: {cedelta} | PE delta: {pedelta}")
      
  
 
- if abs(absolute_differencenew) >= 0.13:
+ if abs(absolute_differencenew) >= 0.11:
     send_telegram_message(f"Ready to adjust :: {absolute_differencenew} | CE delta: {cedelta} | PE delta: {pedelta}")
     print("going to start take new psotion")
     current_datetime = datetime.now()
