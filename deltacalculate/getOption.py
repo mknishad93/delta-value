@@ -350,7 +350,7 @@ def callEveryMinute():
  
 
  if abs(absolute_differencenew) >= 0.13:
-    send_telegram_message(f"current delta Value is :: {absolute_differencenew} | CE delta: {cedelta} | PE delta: {pedelta}")
+    send_telegram_message(f"Ready to adjust :: {absolute_differencenew} | CE delta: {cedelta} | PE delta: {pedelta}")
     print("going to start take new psotion")
     current_datetime = datetime.now()
     current_hour = current_datetime.hour
